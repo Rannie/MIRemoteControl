@@ -1,0 +1,363 @@
+//
+//  GestureManager.m
+//  Wisetv_2x
+//
+//  Created by ran on 14-7-23.
+//  Copyright (c) 2014年 tjgdMobilez. All rights reserved.
+//
+
+#import "MIGestureManager.h"
+
+#define INITIAL_COUNT   (10)
+#define TIME_GAP        (1)
+#define POINT_GAP       (3)
+
+#define JUDGE_X         (100)
+#define JUDGE_Y         (JUDGE_X)
+#define JUDGE_CONTAIN   (90)
+
+#define ClearObj(para)      (para = nil)
+
+static inline UIImageView * quickImageView(NSString * imgName) {
+    UIImageView *iv = [[UIImageView alloc] initWithImage:ImageCache(imgName)];
+    return iv;
+}
+
+static inline CGPoint pSub(CGPoint a, CGPoint b) {
+    return CGPointMake(a.x - b.x, a.y - b.y);
+}
+
+static inline NSValue * pointToValue(CGPoint a) {
+    return [NSValue valueWithCGPoint:a];
+}
+
+static inline CGPoint valueToPoint(NSValue *v) {
+    return [v CGPointValue];
+}
+
+typedef BOOL (^PathLogicBlock)(CGPoint vector);
+
+static NSString * const PointImage      =   @"remote_point_mask";
+static NSString * const UpwardsImage    =   @"remote_upwards";
+static NSString * const DownwardsImage  =   @"remote_downwards";
+static NSString * const MenuImage       =   @"remote_menu";
+static NSString * const RightImage      =   @"remote_right";
+static NSString * const LeftImage       =   @"remote_left";
+static NSString * const BackImage       =   @"remote_back";
+static NSString * const HomeImage       =   @"remote_home";
+NSString * chosenImages[] = {@"remote_chosen1", @"remote_chosen2", @"remote_chosen3", @"remote_chosen4"};
+
+@interface MIGestureManager ()
+{
+    long long _curTime;
+    long long _lastSpawnTime;
+}
+
+@property (nonatomic, strong) NSMutableSet      *imageSet;
+@property (nonatomic, strong) NSMutableArray    *pointPath;
+
+@property (nonatomic, readwrite) UIImageView *upImageView;
+@property (nonatomic, readwrite) UIImageView *downImageView;
+@property (nonatomic, readwrite) UIImageView *leftImageView;
+@property (nonatomic, readwrite) UIImageView *rightImageView;
+@property (nonatomic, readwrite) UIImageView *homeImageView;
+@property (nonatomic, readwrite) UIImageView *backImageView;
+@property (nonatomic, readwrite) UIImageView *menuImageView;
+@property (nonatomic, readwrite) UIImageView *chosenImageView;
+
+@property (nonatomic, assign, readwrite) CGPoint lastPoint;
+
+@end
+
+@implementation MIGestureManager
+
+#pragma mark - Singleton
++ (instancetype)sharedManager
+{
+    static MIGestureManager *instance = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        instance = [[self alloc] initSingleton];
+    });
+    return instance;
+}
+
+- (id)initSingleton
+{
+    self = [super init];
+    if (self) {
+        _imageSet = [NSMutableSet setWithCapacity:INITIAL_COUNT];
+        _pointPath = [NSMutableArray array];
+        _curTime = 0;
+        _lastSpawnTime = 0;
+    }
+    return self;
+}
+
+- (id)init
+{
+    NSLog(@"Warning: please use singleton method.");
+    return nil;
+}
+
+#pragma mark - Resource
+- (void)preloadResources
+{
+    for (int i = 0; i < INITIAL_COUNT; i++) {
+        UIImageView *iv = quickImageView(PointImage);
+        [self.imageSet addObject:iv];
+    }
+    
+    _upImageView     = quickImageView(UpwardsImage);
+    _downImageView   = quickImageView(DownwardsImage);
+    _leftImageView   = quickImageView(LeftImage);
+    _rightImageView  = quickImageView(RightImage);
+    _homeImageView   = quickImageView(HomeImage);
+    _backImageView   = quickImageView(BackImage);
+    _menuImageView   = quickImageView(MenuImage);
+    _chosenImageView = quickImageView(chosenImages[0]);
+    
+    NSMutableArray *aniArr = [NSMutableArray array];
+    for (int i = 0; i < 4; i++) {
+        UIImage *image = ImageCache(chosenImages[i]);
+        [aniArr addObject:image];
+    }
+    _chosenImageView.animationImages = aniArr;
+    _chosenImageView.animationDuration = 0.7;
+    _chosenImageView.animationRepeatCount = 1;
+}
+
+- (void)clearMemory
+{
+    [self.imageSet removeAllObjects];
+    ClearObj(_upImageView);
+    ClearObj(_downImageView);
+    ClearObj(_leftImageView);
+    ClearObj(_rightImageView);
+    ClearObj(_homeImageView);
+    ClearObj(_backImageView);
+    ClearObj(_menuImageView);
+    ClearObj(_chosenImageView);
+    
+    NSLog(@"gesture manager clear memory");
+}
+
+- (UIImageView *)dequeueReusableImageView
+{
+    UIImageView *ret;
+    ret = [self.imageSet anyObject];
+    if (!ret) {
+        ret = quickImageView(PointImage);
+    } else {
+        [self.imageSet removeObject:ret];
+    }
+    
+    return ret;
+}
+
+- (void)enqueueReusableImageView:(UIImageView *)imageView
+{
+    if ([self.imageSet containsObject:imageView]) {return;}
+    
+    [self.imageSet addObject:imageView];
+}
+
+- (CGPoint)lastPoint
+{
+    return valueToPoint([self.pointPath lastObject]);
+}
+
+#pragma mark - Monitor
+- (void)beginMonitorWithPoint:(CGPoint)point
+{
+    [self addPoint:point];
+}
+
+- (void)updateMonitorWithPoint:(CGPoint)point action:(dispatch_block_t)actionBlock
+{
+    _curTime++;
+    int delta = (int)(_curTime - _lastSpawnTime);
+    
+    if (delta >= TIME_GAP) {
+        if (actionBlock) {
+            actionBlock();
+        }
+        
+        _lastSpawnTime = _curTime;
+        [self addPoint:point];
+    }
+}
+
+- (void)endMonitor
+{
+    _curTime = 0;
+    _lastSpawnTime = 0;
+    [self pathAnalysis];
+    [self.pointPath removeAllObjects];
+}
+
+- (void)endMotion
+{
+    [self sendDelegateResult:MonitorResultTypeHome];
+}
+
+#pragma mark - Private methods
+- (void)addPoint:(CGPoint)point
+{
+    [self.pointPath addObject:pointToValue(point)];
+}
+
+- (void)pathAnalysis
+{
+    int count = self.pointPath.count;
+    NSLog(@"points count: %d", count);
+    
+    if (count > JUDGE_CONTAIN) {
+        goto SendNone;
+    } else if (count == 1) {
+        [self sendDelegateResult:MonitorResultTypeChosen];
+    } else {
+        CGPoint start = valueToPoint([self.pointPath firstObject]);
+        CGPoint end   = valueToPoint([self.pointPath lastObject]);
+        int deltaX = pSub(start, end).x;
+        int deltaY = pSub(start, end).y;
+        
+        int midIndex = count/2;
+        CGPoint mid = valueToPoint(self.pointPath[midIndex]);
+        
+        if (abs(deltaX) > JUDGE_X && abs(deltaY) < JUDGE_Y) { // horizontal direction
+            
+            if (deltaX < 0) {  //right direction
+                if (![self checkIsAlwaysCorrectDirection:MonitorResultTypeRight start:0 end:self.pointPath.count-1]) goto SendNone;
+                if (pSub(start, mid).y > JUDGE_Y/2) {
+                    if ([self checkTrackIsMenu]) [self sendDelegateResult:MonitorResultTypeMenu];
+                    else goto SendNone;
+                } else if (abs(pSub(start, mid).y) < JUDGE_Y) {
+                    [self sendDelegateResult:MonitorResultTypeRight];
+                } else goto SendNone;
+            } else {    //left
+                if (![self checkIsAlwaysCorrectDirection:MonitorResultTypeLeft start:0 end:self.pointPath.count-1]) goto SendNone;
+                
+                if (pSub(start, mid).y > JUDGE_Y/2) {
+                    if ([self checkTrackIsMenu]) {
+                        [self sendDelegateResult:MonitorResultTypeMenu];
+                    } else goto SendNone;
+                } else if (abs(pSub(start, mid).y) < JUDGE_Y) {
+                    [self sendDelegateResult:MonitorResultTypeLeft];
+                } else goto SendNone;
+                
+            }
+        } else if (abs(deltaX) < JUDGE_X && abs(deltaY) > JUDGE_Y) { // vertical direction
+            
+            if (deltaY < 0) {   // down
+                if (![self checkIsAlwaysCorrectDirection:MonitorResultTypeDownwards start:0 end:self.pointPath.count-1]) goto SendNone;
+                if (pSub(start, mid).x > JUDGE_X/2) {
+                    if ([self checkTrackIsBack]) [self sendDelegateResult:MonitorResultTypeBack];
+                    else goto SendNone;
+                } else if (abs(pSub(start, mid).x) < JUDGE_X) {
+                    [self sendDelegateResult:MonitorResultTypeDownwards];
+                } else goto SendNone;
+            } else {            // up
+                if (![self checkIsAlwaysCorrectDirection:MonitorResultTypeUpwards start:0 end:self.pointPath.count-1]) goto SendNone;
+                if (abs(pSub(start, mid).x) < JUDGE_X) [self sendDelegateResult:MonitorResultTypeUpwards];
+                else goto SendNone;
+            }
+        } else goto SendNone;
+    }
+    return;
+    
+SendNone:
+    [self sendDelegateResult:MonitorResultTypeNone];
+    return;
+}
+
+- (BOOL)checkIsAlwaysCorrectDirection:(MonitorResultType)direct start:(int)start end:(int)end
+{
+    PathLogicBlock block;
+    switch (direct) {
+        case MonitorResultTypeRight:
+        {
+            block = ^(CGPoint v) {
+                BOOL ret = (v.x >= 0)? NO: YES;
+                return ret;
+            };
+        }
+            break;
+        case MonitorResultTypeLeft:
+        {
+            block = ^(CGPoint v) {
+                BOOL ret = (v.x <= 0)? NO: YES;
+                return ret;
+            };
+        }
+            break;
+        case MonitorResultTypeUpwards:
+        {
+            block = ^(CGPoint v) {
+                BOOL ret = (v.y <= 0)? NO: YES;
+                return ret;
+            };
+        }
+            break;
+        case MonitorResultTypeDownwards:
+        {
+            block = ^(CGPoint v) {
+                BOOL ret = (v.y >= 0)? NO: YES;
+                return ret;
+            };
+        }
+            break;
+        default: {return NO;}
+            break;
+    }
+    
+    for (int i = start; i+POINT_GAP < end; i += POINT_GAP) {
+        
+        CGPoint s = valueToPoint(self.pointPath[i]);
+        CGPoint e = valueToPoint(self.pointPath[i+POINT_GAP]);
+        
+        CGPoint d = pSub(s, e);
+        
+        if (!block(d)) {return NO;}
+    }
+    
+    return YES;
+}
+
+- (BOOL)checkTrackIsMenu
+{
+    int start = 0;
+    int end = self.pointPath.count-1;
+    BOOL flag = NO;
+        
+    while (valueToPoint(self.pointPath[start]).y >= valueToPoint(self.pointPath[start+1]).y) {start++;}
+    while (valueToPoint(self.pointPath[end]).y >= valueToPoint(self.pointPath[end-1]).y) {end--;}
+    
+    if (abs(start-end) < 2*POINT_GAP) { flag = YES; }
+    
+    return flag;
+}
+
+- (BOOL)checkTrackIsBack
+{
+    int start = 0;
+    int end = self.pointPath.count-1;
+    BOOL flag = NO;
+    
+    while (valueToPoint(self.pointPath[start]).x >= valueToPoint(self.pointPath[start+1]).x) {start++;}
+    while (valueToPoint(self.pointPath[end]).x >= valueToPoint(self.pointPath[end-1]).x) {end--;}
+    
+    if (abs(start-end) < 2*POINT_GAP) { flag = YES; }
+    
+    return flag;
+}
+
+#pragma mark - Delegate method
+- (void)sendDelegateResult:(MonitorResultType)type
+{
+    if ([self.delegate respondsToSelector:@selector(gestureManagerMonitorResult:)]) {
+        [self.delegate gestureManagerMonitorResult:type];
+    }
+}
+
+@end

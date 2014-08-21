@@ -1,0 +1,620 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		259FCF5F19A5E992000617E7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 259FCF5E19A5E992000617E7 /* Foundation.framework */; };
+		259FCF6119A5E992000617E7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 259FCF6019A5E992000617E7 /* CoreGraphics.framework */; };
+		259FCF6319A5E992000617E7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 259FCF6219A5E992000617E7 /* UIKit.framework */; };
+		259FCF6919A5E992000617E7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 259FCF6719A5E992000617E7 /* InfoPlist.strings */; };
+		259FCF6B19A5E992000617E7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 259FCF6A19A5E992000617E7 /* main.m */; };
+		259FCF6F19A5E992000617E7 /* MIAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 259FCF6E19A5E992000617E7 /* MIAppDelegate.m */; };
+		259FCF7219A5E992000617E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 259FCF7019A5E992000617E7 /* Main.storyboard */; };
+		259FCF7719A5E992000617E7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 259FCF7619A5E992000617E7 /* Images.xcassets */; };
+		259FCF7E19A5E992000617E7 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 259FCF7D19A5E992000617E7 /* XCTest.framework */; };
+		259FCF7F19A5E992000617E7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 259FCF5E19A5E992000617E7 /* Foundation.framework */; };
+		259FCF8019A5E992000617E7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 259FCF6219A5E992000617E7 /* UIKit.framework */; };
+		259FCF8819A5E992000617E7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 259FCF8619A5E992000617E7 /* InfoPlist.strings */; };
+		259FCF8A19A5E992000617E7 /* MIRemoteControlTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 259FCF8919A5E992000617E7 /* MIRemoteControlTests.m */; };
+		259FCF9819A5E9BA000617E7 /* MIGestureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 259FCF9519A5E9BA000617E7 /* MIGestureManager.m */; };
+		259FCF9919A5E9BA000617E7 /* MIRemoteController.m in Sources */ = {isa = PBXBuildFile; fileRef = 259FCF9719A5E9BA000617E7 /* MIRemoteController.m */; };
+		259FCFB819A5E9F6000617E7 /* remote_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 259FCF9B19A5E9F6000617E7 /* remote_back@2x.png */; };
+		259FCFB919A5E9F6000617E7 /* remote_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 259FCF9C19A5E9F6000617E7 /* remote_bg@2x.png */; };
+		259FCFBA19A5E9F6000617E7 /* remote_btn_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 259FCF9D19A5E9F6000617E7 /* remote_btn_back@2x.png */; };
+		259FCFBB19A5E9F6000617E7 /* remote_btn_help@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 259FCF9E19A5E9F6000617E7 /* remote_btn_help@2x.png */; };
+		259FCFBC19A5E9F6000617E7 /* remote_btn_home@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 259FCF9F19A5E9F6000617E7 /* remote_btn_home@2x.png */; };
+		259FCFBD19A5E9F6000617E7 /* remote_btn_home_highlight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 259FCFA019A5E9F6000617E7 /* remote_btn_home_highlight@2x.png */; };
+		259FCFBE19A5E9F6000617E7 /* remote_btn_menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 259FCFA119A5E9F6000617E7 /* remote_btn_menu@2x.png */; };
+		259FCFBF19A5E9F6000617E7 /* remote_btn_menu_highlight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 259FCFA219A5E9F6000617E7 /* remote_btn_menu_highlight@2x.png */; };
+		259FCFC019A5E9F6000617E7 /* remote_chosen1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 259FCFA319A5E9F6000617E7 /* remote_chosen1@2x.png */; };
+		259FCFC119A5E9F6000617E7 /* remote_chosen2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 259FCFA419A5E9F6000617E7 /* remote_chosen2@2x.png */; };
+		259FCFC219A5E9F6000617E7 /* remote_chosen3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 259FCFA519A5E9F6000617E7 /* remote_chosen3@2x.png */; };
+		259FCFC319A5E9F6000617E7 /* remote_chosen4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 259FCFA619A5E9F6000617E7 /* remote_chosen4@2x.png */; };
+		259FCFC419A5E9F6000617E7 /* remote_downwards@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 259FCFA719A5E9F6000617E7 /* remote_downwards@2x.png */; };
+		259FCFC519A5E9F6000617E7 /* remote_help_closebtn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 259FCFA819A5E9F6000617E7 /* remote_help_closebtn@2x.png */; };
+		259FCFC619A5E9F6000617E7 /* remote_help_closebtn_highlight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 259FCFA919A5E9F6000617E7 /* remote_help_closebtn_highlight@2x.png */; };
+		259FCFC719A5E9F6000617E7 /* remote_helppage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 259FCFAA19A5E9F6000617E7 /* remote_helppage@2x.png */; };
+		259FCFC819A5E9F6000617E7 /* remote_helppage_ip5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 259FCFAB19A5E9F6000617E7 /* remote_helppage_ip5@2x.png */; };
+		259FCFC919A5E9F6000617E7 /* remote_home@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 259FCFAC19A5E9F6000617E7 /* remote_home@2x.png */; };
+		259FCFCA19A5E9F6000617E7 /* remote_left@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 259FCFAD19A5E9F6000617E7 /* remote_left@2x.png */; };
+		259FCFCB19A5E9F6000617E7 /* remote_mask@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 259FCFAE19A5E9F6000617E7 /* remote_mask@2x.png */; };
+		259FCFCC19A5E9F6000617E7 /* remote_mask_ip5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 259FCFAF19A5E9F6000617E7 /* remote_mask_ip5@2x.png */; };
+		259FCFCD19A5E9F6000617E7 /* remote_menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 259FCFB019A5E9F6000617E7 /* remote_menu@2x.png */; };
+		259FCFCE19A5E9F6000617E7 /* remote_point1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 259FCFB119A5E9F6000617E7 /* remote_point1@2x.png */; };
+		259FCFCF19A5E9F6000617E7 /* remote_point@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 259FCFB219A5E9F6000617E7 /* remote_point@2x.png */; };
+		259FCFD019A5E9F6000617E7 /* remote_point_mask@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 259FCFB319A5E9F6000617E7 /* remote_point_mask@2x.png */; };
+		259FCFD119A5E9F6000617E7 /* remote_right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 259FCFB419A5E9F6000617E7 /* remote_right@2x.png */; };
+		259FCFD419A5E9F6000617E7 /* remote_upwards@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 259FCFB719A5E9F6000617E7 /* remote_upwards@2x.png */; };
+		259FCFD719A5EAB2000617E7 /* UIImage+MIName.m in Sources */ = {isa = PBXBuildFile; fileRef = 259FCFD619A5EAB2000617E7 /* UIImage+MIName.m */; };
+		259FCFDA19A5EC5A000617E7 /* UIButton+MIFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 259FCFD919A5EC5A000617E7 /* UIButton+MIFactory.m */; };
+		259FCFDF19A5F492000617E7 /* MIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 259FCFDE19A5F492000617E7 /* MIViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		259FCF8119A5E992000617E7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 259FCF5319A5E992000617E7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 259FCF5A19A5E992000617E7;
+			remoteInfo = MIRemoteControl;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		259FCF5B19A5E992000617E7 /* MIRemoteControl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MIRemoteControl.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		259FCF5E19A5E992000617E7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		259FCF6019A5E992000617E7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		259FCF6219A5E992000617E7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		259FCF6619A5E992000617E7 /* MIRemoteControl-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MIRemoteControl-Info.plist"; sourceTree = "<group>"; };
+		259FCF6819A5E992000617E7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		259FCF6A19A5E992000617E7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		259FCF6C19A5E992000617E7 /* MIRemoteControl-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MIRemoteControl-Prefix.pch"; sourceTree = "<group>"; };
+		259FCF6D19A5E992000617E7 /* MIAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MIAppDelegate.h; sourceTree = "<group>"; };
+		259FCF6E19A5E992000617E7 /* MIAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MIAppDelegate.m; sourceTree = "<group>"; };
+		259FCF7119A5E992000617E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		259FCF7619A5E992000617E7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		259FCF7C19A5E992000617E7 /* MIRemoteControlTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MIRemoteControlTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		259FCF7D19A5E992000617E7 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		259FCF8519A5E992000617E7 /* MIRemoteControlTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MIRemoteControlTests-Info.plist"; sourceTree = "<group>"; };
+		259FCF8719A5E992000617E7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		259FCF8919A5E992000617E7 /* MIRemoteControlTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MIRemoteControlTests.m; sourceTree = "<group>"; };
+		259FCF9419A5E9BA000617E7 /* MIGestureManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIGestureManager.h; sourceTree = "<group>"; };
+		259FCF9519A5E9BA000617E7 /* MIGestureManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIGestureManager.m; sourceTree = "<group>"; };
+		259FCF9619A5E9BA000617E7 /* MIRemoteController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIRemoteController.h; sourceTree = "<group>"; };
+		259FCF9719A5E9BA000617E7 /* MIRemoteController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIRemoteController.m; sourceTree = "<group>"; };
+		259FCF9B19A5E9F6000617E7 /* remote_back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "remote_back@2x.png"; sourceTree = "<group>"; };
+		259FCF9C19A5E9F6000617E7 /* remote_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "remote_bg@2x.png"; sourceTree = "<group>"; };
+		259FCF9D19A5E9F6000617E7 /* remote_btn_back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "remote_btn_back@2x.png"; sourceTree = "<group>"; };
+		259FCF9E19A5E9F6000617E7 /* remote_btn_help@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "remote_btn_help@2x.png"; sourceTree = "<group>"; };
+		259FCF9F19A5E9F6000617E7 /* remote_btn_home@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "remote_btn_home@2x.png"; sourceTree = "<group>"; };
+		259FCFA019A5E9F6000617E7 /* remote_btn_home_highlight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "remote_btn_home_highlight@2x.png"; sourceTree = "<group>"; };
+		259FCFA119A5E9F6000617E7 /* remote_btn_menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "remote_btn_menu@2x.png"; sourceTree = "<group>"; };
+		259FCFA219A5E9F6000617E7 /* remote_btn_menu_highlight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "remote_btn_menu_highlight@2x.png"; sourceTree = "<group>"; };
+		259FCFA319A5E9F6000617E7 /* remote_chosen1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "remote_chosen1@2x.png"; sourceTree = "<group>"; };
+		259FCFA419A5E9F6000617E7 /* remote_chosen2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "remote_chosen2@2x.png"; sourceTree = "<group>"; };
+		259FCFA519A5E9F6000617E7 /* remote_chosen3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "remote_chosen3@2x.png"; sourceTree = "<group>"; };
+		259FCFA619A5E9F6000617E7 /* remote_chosen4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "remote_chosen4@2x.png"; sourceTree = "<group>"; };
+		259FCFA719A5E9F6000617E7 /* remote_downwards@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "remote_downwards@2x.png"; sourceTree = "<group>"; };
+		259FCFA819A5E9F6000617E7 /* remote_help_closebtn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "remote_help_closebtn@2x.png"; sourceTree = "<group>"; };
+		259FCFA919A5E9F6000617E7 /* remote_help_closebtn_highlight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "remote_help_closebtn_highlight@2x.png"; sourceTree = "<group>"; };
+		259FCFAA19A5E9F6000617E7 /* remote_helppage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "remote_helppage@2x.png"; sourceTree = "<group>"; };
+		259FCFAB19A5E9F6000617E7 /* remote_helppage_ip5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "remote_helppage_ip5@2x.png"; sourceTree = "<group>"; };
+		259FCFAC19A5E9F6000617E7 /* remote_home@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "remote_home@2x.png"; sourceTree = "<group>"; };
+		259FCFAD19A5E9F6000617E7 /* remote_left@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "remote_left@2x.png"; sourceTree = "<group>"; };
+		259FCFAE19A5E9F6000617E7 /* remote_mask@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "remote_mask@2x.png"; sourceTree = "<group>"; };
+		259FCFAF19A5E9F6000617E7 /* remote_mask_ip5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "remote_mask_ip5@2x.png"; sourceTree = "<group>"; };
+		259FCFB019A5E9F6000617E7 /* remote_menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "remote_menu@2x.png"; sourceTree = "<group>"; };
+		259FCFB119A5E9F6000617E7 /* remote_point1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "remote_point1@2x.png"; sourceTree = "<group>"; };
+		259FCFB219A5E9F6000617E7 /* remote_point@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "remote_point@2x.png"; sourceTree = "<group>"; };
+		259FCFB319A5E9F6000617E7 /* remote_point_mask@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "remote_point_mask@2x.png"; sourceTree = "<group>"; };
+		259FCFB419A5E9F6000617E7 /* remote_right@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "remote_right@2x.png"; sourceTree = "<group>"; };
+		259FCFB719A5E9F6000617E7 /* remote_upwards@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "remote_upwards@2x.png"; sourceTree = "<group>"; };
+		259FCFD519A5EAB2000617E7 /* UIImage+MIName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+MIName.h"; sourceTree = "<group>"; };
+		259FCFD619A5EAB2000617E7 /* UIImage+MIName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+MIName.m"; sourceTree = "<group>"; };
+		259FCFD819A5EC5A000617E7 /* UIButton+MIFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+MIFactory.h"; sourceTree = "<group>"; };
+		259FCFD919A5EC5A000617E7 /* UIButton+MIFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+MIFactory.m"; sourceTree = "<group>"; };
+		259FCFDD19A5F492000617E7 /* MIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIViewController.h; sourceTree = "<group>"; };
+		259FCFDE19A5F492000617E7 /* MIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		259FCF5819A5E992000617E7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				259FCF6119A5E992000617E7 /* CoreGraphics.framework in Frameworks */,
+				259FCF6319A5E992000617E7 /* UIKit.framework in Frameworks */,
+				259FCF5F19A5E992000617E7 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		259FCF7919A5E992000617E7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				259FCF7E19A5E992000617E7 /* XCTest.framework in Frameworks */,
+				259FCF8019A5E992000617E7 /* UIKit.framework in Frameworks */,
+				259FCF7F19A5E992000617E7 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		259FCF5219A5E992000617E7 = {
+			isa = PBXGroup;
+			children = (
+				259FCF6419A5E992000617E7 /* MIRemoteControl */,
+				259FCF8319A5E992000617E7 /* MIRemoteControlTests */,
+				259FCF5D19A5E992000617E7 /* Frameworks */,
+				259FCF5C19A5E992000617E7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		259FCF5C19A5E992000617E7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				259FCF5B19A5E992000617E7 /* MIRemoteControl.app */,
+				259FCF7C19A5E992000617E7 /* MIRemoteControlTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		259FCF5D19A5E992000617E7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				259FCF5E19A5E992000617E7 /* Foundation.framework */,
+				259FCF6019A5E992000617E7 /* CoreGraphics.framework */,
+				259FCF6219A5E992000617E7 /* UIKit.framework */,
+				259FCF7D19A5E992000617E7 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		259FCF6419A5E992000617E7 /* MIRemoteControl */ = {
+			isa = PBXGroup;
+			children = (
+				259FCF9A19A5E9F6000617E7 /* resources */,
+				259FCF9319A5E9BA000617E7 /* remotecontrol */,
+				259FCF6D19A5E992000617E7 /* MIAppDelegate.h */,
+				259FCF6E19A5E992000617E7 /* MIAppDelegate.m */,
+				259FCFDD19A5F492000617E7 /* MIViewController.h */,
+				259FCFDE19A5F492000617E7 /* MIViewController.m */,
+				259FCF7019A5E992000617E7 /* Main.storyboard */,
+				259FCF7619A5E992000617E7 /* Images.xcassets */,
+				259FCF6519A5E992000617E7 /* Supporting Files */,
+			);
+			path = MIRemoteControl;
+			sourceTree = "<group>";
+		};
+		259FCF6519A5E992000617E7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				259FCF6619A5E992000617E7 /* MIRemoteControl-Info.plist */,
+				259FCF6719A5E992000617E7 /* InfoPlist.strings */,
+				259FCF6A19A5E992000617E7 /* main.m */,
+				259FCF6C19A5E992000617E7 /* MIRemoteControl-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		259FCF8319A5E992000617E7 /* MIRemoteControlTests */ = {
+			isa = PBXGroup;
+			children = (
+				259FCF8919A5E992000617E7 /* MIRemoteControlTests.m */,
+				259FCF8419A5E992000617E7 /* Supporting Files */,
+			);
+			path = MIRemoteControlTests;
+			sourceTree = "<group>";
+		};
+		259FCF8419A5E992000617E7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				259FCF8519A5E992000617E7 /* MIRemoteControlTests-Info.plist */,
+				259FCF8619A5E992000617E7 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		259FCF9319A5E9BA000617E7 /* remotecontrol */ = {
+			isa = PBXGroup;
+			children = (
+				259FCF9419A5E9BA000617E7 /* MIGestureManager.h */,
+				259FCF9519A5E9BA000617E7 /* MIGestureManager.m */,
+				259FCF9619A5E9BA000617E7 /* MIRemoteController.h */,
+				259FCF9719A5E9BA000617E7 /* MIRemoteController.m */,
+				259FCFD519A5EAB2000617E7 /* UIImage+MIName.h */,
+				259FCFD619A5EAB2000617E7 /* UIImage+MIName.m */,
+				259FCFD819A5EC5A000617E7 /* UIButton+MIFactory.h */,
+				259FCFD919A5EC5A000617E7 /* UIButton+MIFactory.m */,
+			);
+			path = remotecontrol;
+			sourceTree = "<group>";
+		};
+		259FCF9A19A5E9F6000617E7 /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				259FCF9B19A5E9F6000617E7 /* remote_back@2x.png */,
+				259FCF9C19A5E9F6000617E7 /* remote_bg@2x.png */,
+				259FCF9D19A5E9F6000617E7 /* remote_btn_back@2x.png */,
+				259FCF9E19A5E9F6000617E7 /* remote_btn_help@2x.png */,
+				259FCF9F19A5E9F6000617E7 /* remote_btn_home@2x.png */,
+				259FCFA019A5E9F6000617E7 /* remote_btn_home_highlight@2x.png */,
+				259FCFA119A5E9F6000617E7 /* remote_btn_menu@2x.png */,
+				259FCFA219A5E9F6000617E7 /* remote_btn_menu_highlight@2x.png */,
+				259FCFA319A5E9F6000617E7 /* remote_chosen1@2x.png */,
+				259FCFA419A5E9F6000617E7 /* remote_chosen2@2x.png */,
+				259FCFA519A5E9F6000617E7 /* remote_chosen3@2x.png */,
+				259FCFA619A5E9F6000617E7 /* remote_chosen4@2x.png */,
+				259FCFA719A5E9F6000617E7 /* remote_downwards@2x.png */,
+				259FCFA819A5E9F6000617E7 /* remote_help_closebtn@2x.png */,
+				259FCFA919A5E9F6000617E7 /* remote_help_closebtn_highlight@2x.png */,
+				259FCFAA19A5E9F6000617E7 /* remote_helppage@2x.png */,
+				259FCFAB19A5E9F6000617E7 /* remote_helppage_ip5@2x.png */,
+				259FCFAC19A5E9F6000617E7 /* remote_home@2x.png */,
+				259FCFAD19A5E9F6000617E7 /* remote_left@2x.png */,
+				259FCFAE19A5E9F6000617E7 /* remote_mask@2x.png */,
+				259FCFAF19A5E9F6000617E7 /* remote_mask_ip5@2x.png */,
+				259FCFB019A5E9F6000617E7 /* remote_menu@2x.png */,
+				259FCFB119A5E9F6000617E7 /* remote_point1@2x.png */,
+				259FCFB219A5E9F6000617E7 /* remote_point@2x.png */,
+				259FCFB319A5E9F6000617E7 /* remote_point_mask@2x.png */,
+				259FCFB419A5E9F6000617E7 /* remote_right@2x.png */,
+				259FCFB719A5E9F6000617E7 /* remote_upwards@2x.png */,
+			);
+			path = resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		259FCF5A19A5E992000617E7 /* MIRemoteControl */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 259FCF8D19A5E992000617E7 /* Build configuration list for PBXNativeTarget "MIRemoteControl" */;
+			buildPhases = (
+				259FCF5719A5E992000617E7 /* Sources */,
+				259FCF5819A5E992000617E7 /* Frameworks */,
+				259FCF5919A5E992000617E7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MIRemoteControl;
+			productName = MIRemoteControl;
+			productReference = 259FCF5B19A5E992000617E7 /* MIRemoteControl.app */;
+			productType = "com.apple.product-type.application";
+		};
+		259FCF7B19A5E992000617E7 /* MIRemoteControlTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 259FCF9019A5E992000617E7 /* Build configuration list for PBXNativeTarget "MIRemoteControlTests" */;
+			buildPhases = (
+				259FCF7819A5E992000617E7 /* Sources */,
+				259FCF7919A5E992000617E7 /* Frameworks */,
+				259FCF7A19A5E992000617E7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				259FCF8219A5E992000617E7 /* PBXTargetDependency */,
+			);
+			name = MIRemoteControlTests;
+			productName = MIRemoteControlTests;
+			productReference = 259FCF7C19A5E992000617E7 /* MIRemoteControlTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		259FCF5319A5E992000617E7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = MI;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = rannie;
+				TargetAttributes = {
+					259FCF7B19A5E992000617E7 = {
+						TestTargetID = 259FCF5A19A5E992000617E7;
+					};
+				};
+			};
+			buildConfigurationList = 259FCF5619A5E992000617E7 /* Build configuration list for PBXProject "MIRemoteControl" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 259FCF5219A5E992000617E7;
+			productRefGroup = 259FCF5C19A5E992000617E7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				259FCF5A19A5E992000617E7 /* MIRemoteControl */,
+				259FCF7B19A5E992000617E7 /* MIRemoteControlTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		259FCF5919A5E992000617E7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				259FCFB919A5E9F6000617E7 /* remote_bg@2x.png in Resources */,
+				259FCFD019A5E9F6000617E7 /* remote_point_mask@2x.png in Resources */,
+				259FCF7719A5E992000617E7 /* Images.xcassets in Resources */,
+				259FCFD419A5E9F6000617E7 /* remote_upwards@2x.png in Resources */,
+				259FCFC019A5E9F6000617E7 /* remote_chosen1@2x.png in Resources */,
+				259FCFBC19A5E9F6000617E7 /* remote_btn_home@2x.png in Resources */,
+				259FCFC919A5E9F6000617E7 /* remote_home@2x.png in Resources */,
+				259FCFC319A5E9F6000617E7 /* remote_chosen4@2x.png in Resources */,
+				259FCFCD19A5E9F6000617E7 /* remote_menu@2x.png in Resources */,
+				259FCFC819A5E9F6000617E7 /* remote_helppage_ip5@2x.png in Resources */,
+				259FCFC719A5E9F6000617E7 /* remote_helppage@2x.png in Resources */,
+				259FCFBF19A5E9F6000617E7 /* remote_btn_menu_highlight@2x.png in Resources */,
+				259FCFBB19A5E9F6000617E7 /* remote_btn_help@2x.png in Resources */,
+				259FCFCE19A5E9F6000617E7 /* remote_point1@2x.png in Resources */,
+				259FCFC219A5E9F6000617E7 /* remote_chosen3@2x.png in Resources */,
+				259FCFD119A5E9F6000617E7 /* remote_right@2x.png in Resources */,
+				259FCFC419A5E9F6000617E7 /* remote_downwards@2x.png in Resources */,
+				259FCFCF19A5E9F6000617E7 /* remote_point@2x.png in Resources */,
+				259FCFC519A5E9F6000617E7 /* remote_help_closebtn@2x.png in Resources */,
+				259FCFC619A5E9F6000617E7 /* remote_help_closebtn_highlight@2x.png in Resources */,
+				259FCF6919A5E992000617E7 /* InfoPlist.strings in Resources */,
+				259FCFCB19A5E9F6000617E7 /* remote_mask@2x.png in Resources */,
+				259FCFCA19A5E9F6000617E7 /* remote_left@2x.png in Resources */,
+				259FCF7219A5E992000617E7 /* Main.storyboard in Resources */,
+				259FCFBE19A5E9F6000617E7 /* remote_btn_menu@2x.png in Resources */,
+				259FCFBA19A5E9F6000617E7 /* remote_btn_back@2x.png in Resources */,
+				259FCFBD19A5E9F6000617E7 /* remote_btn_home_highlight@2x.png in Resources */,
+				259FCFB819A5E9F6000617E7 /* remote_back@2x.png in Resources */,
+				259FCFC119A5E9F6000617E7 /* remote_chosen2@2x.png in Resources */,
+				259FCFCC19A5E9F6000617E7 /* remote_mask_ip5@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		259FCF7A19A5E992000617E7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				259FCF8819A5E992000617E7 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		259FCF5719A5E992000617E7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				259FCF6F19A5E992000617E7 /* MIAppDelegate.m in Sources */,
+				259FCF9919A5E9BA000617E7 /* MIRemoteController.m in Sources */,
+				259FCFDA19A5EC5A000617E7 /* UIButton+MIFactory.m in Sources */,
+				259FCFD719A5EAB2000617E7 /* UIImage+MIName.m in Sources */,
+				259FCFDF19A5F492000617E7 /* MIViewController.m in Sources */,
+				259FCF9819A5E9BA000617E7 /* MIGestureManager.m in Sources */,
+				259FCF6B19A5E992000617E7 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		259FCF7819A5E992000617E7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				259FCF8A19A5E992000617E7 /* MIRemoteControlTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		259FCF8219A5E992000617E7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 259FCF5A19A5E992000617E7 /* MIRemoteControl */;
+			targetProxy = 259FCF8119A5E992000617E7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		259FCF6719A5E992000617E7 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				259FCF6819A5E992000617E7 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		259FCF7019A5E992000617E7 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				259FCF7119A5E992000617E7 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		259FCF8619A5E992000617E7 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				259FCF8719A5E992000617E7 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		259FCF8B19A5E992000617E7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		259FCF8C19A5E992000617E7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		259FCF8E19A5E992000617E7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MIRemoteControl/MIRemoteControl-Prefix.pch";
+				INFOPLIST_FILE = "MIRemoteControl/MIRemoteControl-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		259FCF8F19A5E992000617E7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MIRemoteControl/MIRemoteControl-Prefix.pch";
+				INFOPLIST_FILE = "MIRemoteControl/MIRemoteControl-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		259FCF9119A5E992000617E7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MIRemoteControl.app/MIRemoteControl";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MIRemoteControl/MIRemoteControl-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "MIRemoteControlTests/MIRemoteControlTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		259FCF9219A5E992000617E7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MIRemoteControl.app/MIRemoteControl";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MIRemoteControl/MIRemoteControl-Prefix.pch";
+				INFOPLIST_FILE = "MIRemoteControlTests/MIRemoteControlTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		259FCF5619A5E992000617E7 /* Build configuration list for PBXProject "MIRemoteControl" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				259FCF8B19A5E992000617E7 /* Debug */,
+				259FCF8C19A5E992000617E7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		259FCF8D19A5E992000617E7 /* Build configuration list for PBXNativeTarget "MIRemoteControl" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				259FCF8E19A5E992000617E7 /* Debug */,
+				259FCF8F19A5E992000617E7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		259FCF9019A5E992000617E7 /* Build configuration list for PBXNativeTarget "MIRemoteControlTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				259FCF9119A5E992000617E7 /* Debug */,
+				259FCF9219A5E992000617E7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 259FCF5319A5E992000617E7 /* Project object */;
+}

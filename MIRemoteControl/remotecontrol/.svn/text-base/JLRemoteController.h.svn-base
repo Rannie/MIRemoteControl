@@ -1,0 +1,21 @@
+//
+//  JLRemoteController.h
+//  Wisetv_2x
+//
+//  Created by ran on 14-7-23.
+//  Copyright (c) 2014年 tjgdMobilez. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+typedef NS_ENUM(NSInteger, RemoteTips) {
+    RemoteTipsNone = 0,
+    RemoteTipsTv,
+    RemoteTipsVod
+};
+
+@interface JLRemoteController : UIViewController
+
+@property (nonatomic, assign) RemoteTips tips;
+
+@end
