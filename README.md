@@ -51,7 +51,7 @@ MIRemoteControl
 2.贴图使用的是UIImageView，可以通过轻量级一些的layer设置content来实现。
 
 <br />
-3.这里监听的是控制器中的touch事件，也可以通过子类化UIGestureRecognizer来监听UITouch，需要导入<UIKit/UIGestureRecognizerSubclass.h>.
+3.这里监听的是控制器中的touch事件，也可以通过子类化UIGestureRecognizer来监听UITouch，需要导入 '<UIKit/UIGestureRecognizerSubclass.h>' .
 
 <br />
 4.点的路径分析比较简单，如果对统计有研究会有更出色的分析公式。
