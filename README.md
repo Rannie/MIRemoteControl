@@ -15,7 +15,7 @@ MIRemoteControl
 
 ####点轨迹
 
-
+![First Screenshot](https://raw.github.com/Rannie/MIRemoteControl/master/screenshots/miremote_points.png)
 
 
 
