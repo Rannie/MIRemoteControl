@@ -13,11 +13,16 @@ MIRemoteControl
 
 ##截图
 
-####点轨迹
+####点轨迹(Points Track)
 
+<br />
 ![First Screenshot](https://raw.github.com/Rannie/MIRemoteControl/master/screenshots/miremote_points.png)
+<br />
 
+####方向(Direction)
 
-
-
+<br />
+![First Screenshot](https://raw.github.com/Rannie/MIRemoteControl/master/screenshots/miremote_up.png)
+![Second Screenshot](https://raw.github.com/Rannie/MIRemoteControl/master/screenshots/miremote_down.png)
+![Third Screenshot](https://raw.github.com/Rannie/MIRemoteControl/master/screenshots/miremote_right.png)
 
