@@ -18,20 +18,20 @@
 
 #define ClearObj(para)      (para = nil)
 
-static inline UIImageView * quickImageView(NSString * imgName) {
+UIKIT_STATIC_INLINE UIImageView * quickImageView(NSString * imgName) {
     UIImageView *iv = [[UIImageView alloc] initWithImage:ImageCache(imgName)];
     return iv;
 }
 
-static inline CGPoint pSub(CGPoint a, CGPoint b) {
+UIKIT_STATIC_INLINE CGPoint pSub(CGPoint a, CGPoint b) {
     return CGPointMake(a.x - b.x, a.y - b.y);
 }
 
-static inline NSValue * pointToValue(CGPoint a) {
+UIKIT_STATIC_INLINE NSValue * pointToValue(CGPoint a) {
     return [NSValue valueWithCGPoint:a];
 }
 
-static inline CGPoint valueToPoint(NSValue *v) {
+UIKIT_STATIC_INLINE CGPoint valueToPoint(NSValue *v) {
     return [v CGPointValue];
 }
 
